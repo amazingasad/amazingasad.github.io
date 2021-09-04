@@ -1,0 +1,60 @@
+# Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# Functions
+[functions]
+  directory = "functions"
+
+# Plugins
+[[plugins]]
+  package = "netlify-plugin-minify-html"
+  [plugins.inputs]
+    contexts = [
+      'production',
+      'branch-deploy',
+      'deploy-preview'
+    ]
+
+  [plugins.inputs.minifierOptions]
+    removeComments = true
+    collapseWhitespace = true
+
+[[plugins]]
+  package = "netlify-plugin-hashfiles"
+
+# Redirects
+# API Redirect
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Social Redirects
+[[redirects]]
+  from = "/twitter"
+  to = "https://www.twitter.com/amazingasad124"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/facebook"
+  to = "https://www.facebook.com/amazing.asad.124"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/github"
+  to = "https://www.github.com/amazingasad"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/instagram"
+  to = "https://www.instagram.com/amazing.asad"
+  status = 302
+  force = true
