@@ -683,3 +683,20 @@ footer span a:hover {
     line-height: 38px;
   }
 }
+
+/* Custom Contact Form CSS */
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.bg-success {
+  background-color: #10b981;
+}
+
+.bg-danger {
+  background-color: #ef4444;
+}

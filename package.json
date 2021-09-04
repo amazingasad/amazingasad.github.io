@@ -1,0 +1,29 @@
+{
+  "name": "amazingasad.github.io",
+  "version": "1.0.0",
+  "description": "This is my personal Portfolio Website",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amazingasad/amazingasad.github.io"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amazingasad/amazingasad.github.io/issues"
+  },
+  "homepage": "https://github.com/raiyansarker/amazingasad.github.io#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "googleapis": "^85.0.0",
+    "helmet": "^4.6.0",
+    "nodemailer": "^6.6.3",
+    "serverless-http": "^2.7.0"
+  }
+}
