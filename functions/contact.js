@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(
   cors({
-    origin: ["https://in-asad.com", "in-asad.netlify.app"],
+    origin: ["https://in-asad.com", "https://in-asad.netlify.app"],
   })
 );
 
@@ -24,25 +24,13 @@ router.post("/", async (req, res) => {
     if (!validator.validate(email))
       return res.status(400).json({ message: "Email is not valid" });
 
-    const auth = google.auth.OAuth2;
-    const client = new auth(
-      process.env.GOOGLE_CLIENT_ID,
-      process.env.GOOGLE_CLIENT_SECRET
-    );
-    client.setCredentials({
-      refresh_token: process.env.GOOGLE_CLIENT_REFRESH_TOKEN,
-    });
-    const accessToken = client.getAccessToken();
-
     const transport = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
       auth: {
-        type: "OAuth2",
         user: process.env.GOOGLE_MAIL,
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        refreshToken: process.env.GOOGLE_CLIENT_REFRESH_TOKEN,
-        accessToken,
+        pass: process.env.GOOGLE_PASS,
       },
     });
 
@@ -59,6 +47,9 @@ router.post("/", async (req, res) => {
         Subject: ${subject}<br>
         Message: "${message}" 
       `,
+      headers: {
+        "X-Mailer": "Raiyan's Mailer",
+      },
     };
 
     transport.sendMail(options, (error, _) => {
