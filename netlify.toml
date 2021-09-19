@@ -59,7 +59,7 @@
   status = 302
   force = true
 [[redirects]]
-  from = "/instagram"
+  from = "/youtube"
   to = "https://www.youtube.com/c/MixingBlender"
   status = 302
   force = true
