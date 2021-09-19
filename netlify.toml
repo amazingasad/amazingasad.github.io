@@ -58,3 +58,8 @@
   to = "https://www.instagram.com/amazing.asad"
   status = 302
   force = true
+[[redirects]]
+  from = "/instagram"
+  to = "https://www.youtube.com/c/MixingBlender"
+  status = 302
+  force = true
